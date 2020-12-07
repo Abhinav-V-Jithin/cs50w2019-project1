@@ -1,0 +1,47 @@
+{% extends "book_layout.html" %}
+{% block title %}
+  Comments
+{% endblock %}
+{% block content %}
+<div class="bar">
+  <ul>
+    <li><a href="{{ url_for('book_store') }}">Book Store!</a></li>
+    <li><a href="{{ url_for('About') }}">About</a></li>
+    <li><a href="{{ url_for('documentation') }}">Documentation</a></li>
+  </ul>
+</div>
+
+<div class="menu">
+  <br>
+  <a href="{{ url_for('About') }}"><h6>About</h6></a>
+  <hr style="border: 2px solid#5b9aa0;" />
+  <a href="{{ url_for('documentation') }}"><h6>Documentation</h6></a>
+  <hr style="border: 2px solid#5b9aa0;" />
+  <a href="{{ url_for('book_store') }}"><h6>Book Store!</h6></a>
+</div>
+<div class="comment-group">
+  <form action="{{ url_for('commenton', isbn=isbn) }}" method="post">
+    <textarea placeholder="Enter your comments on this book!"name="comment" rows="3" cols="80"></textarea><br>
+  <button>Add your comment!</button>
+  </form>
+  <form action="{{ url_for('books_details', isbn=isbn) }}" method="post">
+  <button>Back to details</button>
+  </form>
+  {% if no_comments==True %}
+    <div class="nocomments">No one has commented on this book yet!</div>
+    </div>
+  {% else %}
+    {% for i in range(0, num) %}
+    <div class="comments">
+      <div class="comment_box">
+        <div class="comment_heading">
+          By {{ users[i] }} on {{ date_list[i] }} at {{ time[i] }}
+        </div>
+        <div class="comment_content">
+          {{ comments[i] }}
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  {% endif %}
+{% endblock %}

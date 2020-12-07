@@ -1,0 +1,374 @@
+//completed class index_form
+$top_length: 35px;
+@media (min-width: 800px)
+{
+  .bar
+  {
+    display: none;
+  }
+  .input-group
+  {
+    margin-top:20px;
+    margin-left:25%;
+    margin-right:25%;
+    width:45%;
+  }
+}
+@media (max-width: 800px)
+{
+  .input-group
+  {
+    margin-top:20px;
+    margin-left:10%;
+    margin-right:10%;
+    width:80%;
+  }
+  .bar
+  {
+    display: contents;
+    ul
+    {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+      position: -webkit-sticky; /* Safari */
+      position: sticky;
+      top: 0;
+    }
+    li
+    {
+      float: left;
+      a
+      {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      a:hover
+      {
+        background-color: #111;
+      }
+    }
+    .active
+    {
+      background-color: #4CAF50;
+    }
+  }
+}
+.index_form
+{
+  .form
+  {
+    @media (min-width: 500px)
+    {
+      padding: 50px;
+      border: 5px solid black;
+      text-align: center;
+      margin-left: 30%;
+      margin-right: 30%;
+      margin-top: 5%;
+      background: white;
+      h1
+      {
+        color: blue;
+      }
+      input[type=text]
+      {
+        font-family: cursive;
+      }
+    }
+    @media (max-width: 800px)
+    {
+      padding: 15px;
+      border: 5px solid black;
+      text-align: center;
+      margin-left: 15%;
+      margin-right: 15%;
+      margin-top: 5%;
+      background: white;
+    }
+  }
+}
+//completed these forms below
+form.logout_button
+{
+  float:right;
+}
+form.logout_button:hover
+{
+  border-color: black;
+}
+//completed class errors
+.errors
+{
+  text-align: center;
+  padding: 10px;
+  color: red;
+  background: white;
+  border: 5px solid red;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 5%;
+}
+//Completed class menu
+.menu
+{
+  @media (min-width: 800px)
+  {
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #5a944d;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  @media (max-width: 800px)
+  {
+    display: none;
+  }
+  a
+  {
+    color: white;
+    text-align: center;
+  }
+}
+//Compleed below classes
+.nocomments
+{
+  font-family: cursive;
+}
+.comment_box
+{
+  border: 1px solid black;
+  margin-top: 2%;
+  margin-right: 25%;
+}
+.comments button
+{
+  color: white;
+  background-color: green;
+  height: 5%;
+  width: 15%;
+  border-radius: 25px;
+}
+.comment_heading
+{
+  text-align: center;
+  border-bottom: 1px solid black;
+  background-color: #e6f2e9;
+  font-style: italic;
+}
+.comment_content
+{
+  font-family:cursive;
+}
+//Completed class grouped
+.grouped
+{
+  button
+  {
+    color: white;
+    background-color: green;
+    height: 75px;
+    width: 150px;
+    border-radius: 25px;
+  }
+  button:hover
+  {
+    background-color: #0059b3;
+    border-color: #80bfff;
+  }
+  button:active
+  {
+    background-color: #001f4d;
+  }
+}
+
+//completed books details box
+*
+{
+  box-sizing: border-box;
+}
+.book_details_box
+{
+  @media (min-width: 800px)
+  {
+    width: 25%;
+    height: auto;
+    padding: 50px;
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTEDVoAeShtVTSAk7OAldIRVsE-5U_1T607mw&usqp=CAU');
+    background-size: 100%;
+    border: 5px solid green;
+    margin-left: 40%;
+    margin-top: 5px;
+    font-size: 20px;
+    color: blue;
+  }
+  @media (max-width: 800px)
+  {
+    width: 50%;
+    height: auto;
+    padding: 25px;
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTEDVoAeShtVTSAk7OAldIRVsE-5U_1T607mw&usqp=CAU');
+    background-size: 100%;
+    border: 5px solid green;
+    font-size: 20px;
+    margin-left: 25%;
+    margin-right: 25%;
+    color: blue;
+  }
+}
+//Completed below classes
+.results
+{
+  @media (min-width: 800px)
+  {
+    margin-left: 32%;
+  }
+}
+.comment-group
+{
+  button
+  {
+    color: white;
+    background-color: green;
+    height: 75px;
+    width: 150px;
+    border-radius: 25px;
+  }
+  button:hover
+  {
+    background-color: #0059b3;
+    border-color: #80bfff;
+  }
+  button:active
+  {
+    background-color: #001f4d;
+  }
+  @media (min-width: 800px)
+  {
+    margin-left: 22%;
+  }
+  @media (max-width: 800px)
+  {
+    margin-left: 5px;
+  }
+}
+.grouped
+{
+  @media (min-width: 800px)
+  {
+    margin-left: 40%;
+    margin-top: 5px;
+  }
+  @media (max-width: 800px)
+  {
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 5px;
+  }
+}
+.container
+{
+  display: flex;
+  flex-wrap: wrap;
+  @media (min-width: 500px)
+  {
+    margin-left: 22%;
+    .box
+    {
+      width: 300px;
+      font-size: 20px;
+      padding: 20px;
+      border: 5px solid green;
+      margin: 20px;
+      a
+      {
+        color: green;
+      }
+      a:hover
+      {
+        color: red;
+      }
+      a:active
+      {
+        color: blue;
+      }
+    }
+  }
+  @media (max-width: 800px)
+  {
+    .box
+    {
+      width: 250px;
+      font-size: 20px;
+      padding: 10px;
+      border: 3px solid green;
+      margin: 10px;
+      a
+      {
+        color: green;
+      }
+      a:hover
+      {
+        color: red;
+      }
+      a:active
+      {
+        color: blue;
+      }
+    }
+  }
+}
+
+//Completed class tab
+.tab
+{
+  a
+  {
+    color: blue;
+  }
+  a:hover
+  {
+    color: red;
+  }
+  a:active
+  {
+    color: black;
+  }
+}
+.book_layout
+{
+  background-color: white;
+  background-size: 100%;
+}
+.book_box
+{
+  border-color: black;
+  border: 10px solid black;
+  border-collapse: collapse;
+  button
+  {
+    background-color: white;
+  }
+}
+.top-books
+{
+  position: relative;
+  animation: move-left-right infinite;
+  animation-duration: 10s;
+}
+@keyframes move-left-right
+{
+  0%  {left:0px; top:$top_length;}
+  50% {left: 1000px;top: $top_length;}
+  100% {left: 0px;top:$top_length;}
+}

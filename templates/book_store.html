@@ -1,0 +1,55 @@
+{% extends "book_layout.html" %}
+{% block title %}
+  Book Store
+{% endblock %}
+{% block content %}
+  <div class="bar">
+    <ul>
+      <li><a class="active" href="{{ url_for('book_store') }}">Refresh!</a></li>
+      <li><a href="{{ url_for('About') }}">About</a></li>
+      <li><a href="{{ url_for('documentation') }}">Documentation</a></li>
+    </ul>
+  </div>
+  <div class="menu">
+    <br>
+    <a href="{{ url_for('About') }}"><h6>About</h6></a>
+    <hr style="border: 2px solid#5b9aa0;" />
+    <a href="{{ url_for('documentation') }}"><h6>Documentation</h6></a>
+    <hr style="border: 2px solid#5b9aa0;" />
+  </div>
+  <form action="{{ url_for('search') }}" method="post">
+    <div class="input-group">
+      <input type="text" name="search2" value="{{ query }}" class="form-control" placeholder="Search for books">
+      <div class="input-group-append">
+          <button class="btn btn-primary">
+            <i class="fa fa-search"></i>
+          </button>
+      </div>
+    </div>
+  </form>
+
+  {% if stat=='logged in' %}
+  <form action="{{ url_for('logout') }}" method="post" class="logout_button">
+  <button style="background-color: #0390fc;"><img src="{{ url_for('static', filename='logout.png')}}" height="30"width="50"></button>
+  </form>
+  <h1 style="margin-left:20px;">{{ username }}, Welcome back to Book Store!<br>
+  {% else %}
+  <form style="margin-right:10px"action="{{ url_for('index') }}" method="post" class="logout_button">
+  <button style="background-color: #0390fc;"><img src="{{ url_for('static', filename='login.png')}}" height="30"width="50"></button>
+  </form>
+  {% endif %}
+  <h1 class="top-books">Here are the top books on WebsiteX.</h1>
+  <div class="container">
+      {% for i in range(0, num) %}
+        <div class="box">
+          <a href="{{ url_for('books_details', isbn=isbns[i]) }}">
+            Author:{{ authors[i] }}<br>
+            Title :{{ titles[i] }}<br>
+            Year  :{{ years[i] }}<br>
+            rating:{{ ratings[i] }}<br>
+            isbn  :{{ isbns[i] }}<br>
+          </a>
+        </div>
+      {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <style>
+      body
+      {
+        background: url('https://media.gettyimages.com/videos/technology-blue-background-loop-video-id115983623?s=640x640')
+      }
+      .about_content
+      {
+        border: 2px solid black;
+        margin-top: 20px;
+        margin-left: 200px;
+        margin-right: 200px;
+        padding: 10px;
+        background: url('https://www.themebeta.com/media/cache/400x225/files/windows/images/201809/24/3555ffd5974bde40aa7876eaf220ba34.jpeg');
+        color: yellow;
+      }
+      .about_content a
+      {
+        color: pink;
+      }
+      .about_content a:hover
+      {
+        color: red;
+      }
+      .about_content a:active
+      {
+        color: black;
+      }
+    </style>
+    <meta charset="utf-8">
+    <title>WebsiteX</title>
+  </head>
+  <body>
+    <header>
+      <div class="about_content">
+        <marquee><h1>WebsiteX</h1></marquee><br>
+          I am Abhinav.V.Jithin of 9th Grade from India. WebsiteX is my project for the project1 of CS50's
+          Web Development with Python and JavaScript. You'll find that this site is related to books as this site is a book review site. To get the complete access to this site, ensure that you have signed in.
+          The features of this site are:
+          <ul>
+            <li>Top books on Good Reads will be displayed as soon as you enter the book store.</li>
+            <li>You can search for ISBN,Title,Author or even year related to your search.</li>
+            <li>Even a part of the ISBN or Title or Author is enough to get the results for your search.</li>
+            <li>You can rate any books of this site.</li>
+            <li>Users can comment on any of the books in the site.</li>
+            <li>On the details page of a particular book, you can find the number of comments, goodreads rating and also the average ratings given by the user.</li>
+            <li>API's are there for each book. So app developer's can use this API values for building their apps.</li>
+          </ul>
+          You can dive to know deep about this site if you are a developer by going to Documentation:<br>
+          <a href="{{ url_for('documentation') }}">Documentation</a><br>
+          <a href="{{ url_for('register_page') }}">Are you a new user?</a><br>
+          <a href="{{ url_for('index') }}">Already have an account?</a><br>
+          <a href="{{ url_for('book_store') }}">Wanted to try Book Store!</a><br>
+      </div>
+    </header>
+  </body>
+</html>

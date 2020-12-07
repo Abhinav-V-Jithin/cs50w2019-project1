@@ -1,0 +1,10 @@
+.book_box
+{
+  border-color: black;
+  border: 10px solid black;
+  border-collapse: collapse;
+  button
+  {
+    background-color: white;
+  }
+}

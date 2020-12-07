@@ -1,0 +1,68 @@
+{% extends "book_layout.html" %}
+{% block title %}
+Details...
+{% endblock %}
+{% block content %}
+<div class="bar">
+  <ul>
+    <li><a href="{{ url_for('book_store') }}">Book Store!</a></li>
+    <li><a href="{{ url_for('About') }}">About</a></li>
+    <li><a href="{{ url_for('documentation') }}">Documentation</a></li>
+  </ul>
+</div>
+<div class="menu">
+  <br>
+  <a href="{{ url_for('About') }}"><h6>About</h6></a>
+  <hr style="border: 2px solid#5b9aa0;" />
+  <a href="{{ url_for('documentation') }}"><h6>Documentation</h6></a>
+  <hr style="border: 2px solid#5b9aa0;" />
+  <a href="{{ url_for('book_store') }}"><h6>Book Store!</h6></a>
+  <hr style="border: 2px solid#5b9aa0;" />
+</div>
+<h1 style="color:green;text-align:center;">Book details</h1>
+{% if stat=='logged in' %}
+  <form style="margin-right:5%"action="{{ url_for('logout') }}" method="post" class="logout_button">
+    <button style="background-color: #0390fc;"><img src="{{ url_for('static', filename='logout.png')}}" height="30"width="50"></button>
+  </form>
+{% elif stat=='logged out' %}
+  <form style="margin-right:5%"action="{{ url_for('index') }}" method="post" class="logout_button">
+    <button style="background-color: #0390fc;"><img src="{{ url_for('static', filename='login.png')}}" height="30"width="50"></button>
+  </form>
+{% endif %}
+<br><br>
+<form style="margin-right:5%"action="{{ url_for('book_store') }}" class="logout_button">
+  <button style="background-color: #0390fc;"><img src="{{ url_for('static', filename='book.png')}}" height="30"width="50"></button>
+</form>
+<div class="book_details_box">
+  <p>Author          : {{ book.author }}<br>
+    Title           : {{ book.title  }}<br>
+    ISBN            : {{ book.isbn   }}<br>
+    Year            : {{ book.year   }}<br>
+    Goodreads rating: {{ goodreadsrating }}<br>
+{% if n == True %}
+  No one has rated this book yet from this site.
+{% else %}
+  WebsiteX rating: {{ avg }}
+{% endif %}
+</p>
+</div>
+<div class="grouped">
+  <form method="post" action="{{ url_for('rate', isbn=book.isbn) }}">
+    How many stars would you give this book?
+    <select name="star">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <button>Rate this Book!</button>
+  </form>
+<div class="comments">
+  <form action="{{ url_for('getcomments', isbn=book.isbn)}}" method="post">
+    <button>Click to view comments</button>
+  </form>
+  <br><br>
+</div>
+</div>
+{% endblock %}

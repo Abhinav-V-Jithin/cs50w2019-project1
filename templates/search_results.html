@@ -1,0 +1,122 @@
+{% extends "book_layout.html" %}
+{% block title %}
+  Search results...
+{% endblock %}
+{% block  content %}
+<div class="bar">
+  <ul>
+    <li><a href="{{ url_for('book_store') }}">Go to Book Store!</a></li>
+    <li><a href="{{ url_for('About') }}">About</a></li>
+    <li><a href="{{ url_for('documentation') }}">Documentation</a></li>
+  </ul>
+</div>
+<div class="menu">
+  <br>
+  <a href="{{ url_for('About') }}"><h6>About</h6></a>
+  <hr style="border: 2px solid#5b9aa0;" />
+  <a href="{{ url_for('documentation') }}"><h6>Documentation</h6></a>
+  <hr style="border: 2px solid#5b9aa0;" />
+</div>
+<form action="{{ url_for('search') }}" method="post">
+  <div class="input-group">
+    <input type="text" name="search2" value="{{ query }}" class="form-control" placeholder="Search for books">
+    <div class="input-group-append">
+        <button class="btn btn-primary">
+          <i class="fa fa-search"></i>
+        </button>
+    </div>
+  </div>
+</form>
+{% if stat == 'logged in' %}
+  <form action="{{ url_for('logout') }}" method="post" class="logout_button">
+    <button style="background-color: #0390fc;"><img src="{{ url_for('static', filename='logout.png')}}" height="30"width="50"></button>
+  </form>
+{% else %}
+  <form style="margin-right:10px"action="{{ url_for('index') }}" method="post" class="logout_button">
+    <button style="background-color: #0390fc;"><img src="{{ url_for('static', filename='login.png')}}" height="30"width="50"></button>
+  </form>
+{% endif %}
+<div class="results">
+  {% if is_isbn==True or is_year==True or is_author==True or is_title==True %}
+    <h1>Here are the top results for your search.</h1>
+  {% else %}
+    <h1>Sorry. We could not find any results for your search.</h1>
+  {% endif %}
+  <br>
+  <br>
+  <br>
+  {% if is_isbn == True %}
+    <h1>Here are the results for isbn related to your search.</h1>
+    <table border="5" height="100"width="500"style="color:red;background-color:#aebacf;border-collapse:collapse;">
+      <tr>
+        <th>ISBN</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Year published</th>
+      </tr>
+      {% for book in isbns %}
+        <tr>
+          {% for i in range(0,4) %}
+            <td class="tab"><a href="{{ url_for('books_details', isbn=book[0] ) }}">{{ book[i] }}</a></td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </table>
+    {% endif %}
+    {% if is_author==True %}
+      <h1>Here are the results for author related to your search.</h1>
+      <br>
+      <table border="5" height="100" width="500" style="color:red;background-color:#aebacf;border-collapse:collapse;">
+        <tr>
+          <th>ISBN</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Year</th>
+        </tr>
+        {% for book in authors %}
+          <tr>
+            {% for i in range(0,4) %}
+              <td class="tab"><a href="{{ url_for('books_details', isbn = book[0] )}}">{{ book[i] }}</a></td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </table>
+    {% endif %}
+    {% if is_title==True %}
+      <h1>Here are the results for titles related to your search.</h1>
+      <table border="5" height="100" width="500" style="color:red;background-color:#aebacf;border-collapse:collapse;">
+        <tr>
+          <th>ISBN</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Year</th>
+        </tr>
+        {% for title in titles %}
+          <tr>
+            {% for i in range(0, 4) %}
+              <td class="tab"><a href="{{ url_for('books_details', isbn=title[0] )}}">{{ title[i] }}</a></td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </table>
+    {% endif %}
+    {% if is_year==True %}
+      <h1>Here are the results for years related to your search.</h1>
+      <table border="5" height="100" width="500" style="color:red;background-color:#aebacf;border-collapse:collapse;">
+        <tr>
+          <th>ISBN</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Year</th>
+        </tr>
+        {% for year in years %}
+          <tr>
+            {% for i in range(0, 4) %}
+              <td class="tab"><a href="{{ url_for('books_details', isbn = year[0] )}}">{{ year[i] }}</a></td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </table>
+      {% endif %}
+    </div>
+{% endblock %}

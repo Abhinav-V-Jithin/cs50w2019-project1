@@ -1,0 +1,25 @@
+CREATE TABLE users(
+  id SERIAL PRIMARY KEY,
+  username VARCHAR NOT NULL,
+  password VARCHAR NOT NULL
+);
+CREATE TABLE books(
+  id SERIAL PRIMARY KEY,
+  isbn VARCHAR NOT NULL,
+  title VARCHAR NOT NULL,
+  author VARCHAR NOT NULL,
+  year INTEGER NOT NULL
+);
+CREATE TABLE rating(
+  id SERIAL PRIMARY KEY,
+  isbn VARCHAR NOT NULL,
+  rating FLOAT NOT NULL,
+  username VARCHAR NOT NULL
+);
+CREATE TABLE comments(
+  id SERIAL PRIMARY KEY,
+  isbn VARCHAR NOT NULL,
+  comment VARCHAR NOT NULL,
+  username VARCHAR NOT NULL,
+  comment_time VARCHAR NOT NULL
+);

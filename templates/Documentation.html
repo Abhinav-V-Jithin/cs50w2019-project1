@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Documentation</title>
+    <style>
+    .content
+    {
+      margin-left: 10%;
+      margin-right: 10%;
+      margin-top: 2%;
+      border: 2px solid black;
+      color: yellow;
+      background: url('https://static3.bigstockphoto.com/5/4/1/large1500/145311812.jpg')
+    }
+    .content a
+    {
+      color: pink;
+    }
+    .content a:hover
+    {
+      color: red;
+    }
+    .content a:active
+    {
+      color: black;
+    }
+    body
+    {
+      background: url('https://bestexamcoaching.com/wp-content/uploads/2016/02/Geometric-Abstract-PPT-Backgrounds.jpg')
+    }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <h1 style="text-align: center;">Documentation!</h1>
+      <p>This website can be accessed in three different ways. One who have already registered can directly enter into this site. But one who have not can register and one can also go to book store directly.</p>
+      If you are an already registered user, you can follow the following steps:
+      <ul>
+        <li>You can find that so many boxes that have appeared, with ISBN,Title,Goodreads rating, Author and the year of publication in it.</li>
+        <li>You will also find a search box where you can search for books by entering their ISBN or Author or Year or Title. (Note: The queries are case sensitive.Its preferrable to search for a part of the what you know and you'll get better results by searching with small lettered queries.)</li>
+        <li>When you click on any of that boxes, you'll be redirected to a page showing the details of a book.</li>
+        <li>Then, you'll find that there will be a drop-down list showing numbers from 1-5 and a rate button nearby. If you select any of that values and then rate a book, then your rating will be successfully added.</li>
+        <li>You can also see a 'View Comments' button. When you click on that, you'll then see a page showing all the comments on that book. There's also a textarea space provided for you, inorder to post any comment.</li>
+        <li>If none of them commented on a book, then it'll show a message displaying, 'No one has commented on this book yet!'</li>
+        <li>If you want to logout, then you'll see an icon showing the logout symbol. Logout by clicking on that.</li>
+        <li>If you signed in into the site and ten forgot to logout, then the next time you go to the login URL you'll find that you are automatically redirected to book store!</li>
+        <li>If you want to go to book store, click on the icon depicting books.</li>
+        <li style="font-family: cursive;color: orange;">Note: When you load the book store, you'll find that it takes time to load. This is because, it takes the latest updated ratings on the books from goodreads.</li>
+      </ul>
+      If you are not a registered user
+      <ul>
+        <li>It is preferred to be registered user, because else you won't get all features of this site.</li>
+        <li>You'll see all the features mentioned above but one thing is that you are neither able to rate a book nor comment on a book.</li>
+      </ul>
+      <br><br><br><br><br>
+      <h1>Developer Tools</h1>
+      <p>This site has API's which are in the format, 'book/api/(isbn number)'. You will be getting a JSON object (JavaScript Object Notation) containing the details of a book. For example:
+{
+    "title": "Memory",
+    "author": "Doug Lloyd",
+    "year": 2015,
+    "isbn": "1632168146",
+    "review_count": 28,
+    "average_score": 5.0
+}
+<br><br>
+If you are trying to invoke an invalid isbn number, then automatically a 422 error will be displayed.</p>
+<a href="{{ url_for('book_store') }}">Go to Book Store!</a><br>
+<a href="{{ url_for('register_page') }}">New to this site?</a><br>
+<a href="{{ url_for('index') }}">Already have an account?</a><br>
+    </div>
+  </body>
+</html>
